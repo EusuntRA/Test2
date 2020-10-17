@@ -1,0 +1,119 @@
+object FCec: TFCec
+  Left = 0
+  Top = 0
+  Caption = 'Evidenta cecurilor eliberate'
+  ClientHeight = 442
+  ClientWidth = 365
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 365
+    Height = 41
+    Align = alTop
+    TabOrder = 0
+    ExplicitLeft = 96
+    ExplicitWidth = 185
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 41
+    Width = 365
+    Height = 360
+    Align = alClient
+    TabOrder = 1
+    ExplicitLeft = 128
+    ExplicitTop = 88
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object DBGrid1: TDBGrid
+      Left = 1
+      Top = 1
+      Width = 363
+      Height = 358
+      Align = alClient
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Alignment = taCenter
+          Expanded = False
+          Title.Alignment = taCenter
+          Title.Caption = 'Nr.'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -13
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = [fsBold]
+          Width = 75
+          Visible = True
+        end
+        item
+          Alignment = taCenter
+          Expanded = False
+          Title.Alignment = taCenter
+          Title.Caption = 'Nr cec'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -13
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = [fsBold]
+          Width = 108
+          Visible = True
+        end
+        item
+          Alignment = taCenter
+          Expanded = False
+          Title.Alignment = taCenter
+          Title.Caption = 'Suma Cec'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -13
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = [fsBold]
+          Width = 124
+          Visible = True
+        end>
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 401
+    Width = 365
+    Height = 41
+    Align = alBottom
+    TabOrder = 2
+    ExplicitLeft = 160
+    ExplicitTop = 168
+    ExplicitWidth = 185
+    object Button1: TButton
+      Left = 209
+      Top = 5
+      Width = 136
+      Height = 34
+      Caption = 'Tiparire'
+      TabOrder = 0
+    end
+    object Button2: TButton
+      Left = 17
+      Top = 5
+      Width = 160
+      Height = 34
+      Caption = 'Iesire'
+      TabOrder = 1
+    end
+  end
+end

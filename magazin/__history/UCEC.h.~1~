@@ -1,0 +1,31 @@
+//---------------------------------------------------------------------------
+
+#ifndef UCECH
+#define UCECH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Data.DB.hpp>
+#include <Vcl.DBGrids.hpp>
+#include <Vcl.ExtCtrls.hpp>
+#include <Vcl.Grids.hpp>
+//---------------------------------------------------------------------------
+class TFCec : public TForm
+{
+__published:	// IDE-managed Components
+	TPanel *Panel1;
+	TPanel *Panel2;
+	TPanel *Panel3;
+	TDBGrid *DBGrid1;
+	TButton *Button1;
+	TButton *Button2;
+private:	// User declarations
+public:		// User declarations
+	__fastcall TFCec(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TFCec *FCec;
+//---------------------------------------------------------------------------
+#endif

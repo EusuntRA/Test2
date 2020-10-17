@@ -1,0 +1,675 @@
+object FReceptie: TFReceptie
+  Left = 0
+  Top = 0
+  Caption = 'Gestionare receptie'
+  ClientHeight = 448
+  ClientWidth = 890
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 890
+    Height = 448
+    ActivePage = PRODUS
+    Align = alClient
+    TabHeight = 30
+    TabOrder = 0
+    ExplicitWidth = 888
+    object RECEPTIE: TTabSheet
+      Caption = 'RECEPTIE'
+      ExplicitTop = 24
+      ExplicitWidth = 754
+      ExplicitHeight = 419
+      object Panel1: TPanel
+        Left = 0
+        Top = 0
+        Width = 882
+        Height = 57
+        Align = alTop
+        Color = clCream
+        ParentBackground = False
+        TabOrder = 0
+        ExplicitTop = -6
+        ExplicitWidth = 754
+        DesignSize = (
+          882
+          57)
+        object Label1: TLabel
+          Left = 8
+          Top = 7
+          Width = 66
+          Height = 16
+          Caption = 'Nr factura'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label2: TLabel
+          Left = 136
+          Top = 7
+          Width = 83
+          Height = 16
+          Caption = 'Data factura'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label3: TLabel
+          Left = 264
+          Top = 7
+          Width = 101
+          Height = 16
+          Caption = 'Emitent factura'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object ENr: TEdit
+          Left = 8
+          Top = 24
+          Width = 105
+          Height = 24
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+        end
+        object EEmitent: TEdit
+          Left = 264
+          Top = 24
+          Width = 612
+          Height = 24
+          Anchors = [akLeft, akTop, akRight]
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          ExplicitWidth = 600
+        end
+        object EDF: TDateTimePicker
+          Left = 136
+          Top = 24
+          Width = 102
+          Height = 24
+          Date = 43945.801605243050000000
+          Time = 43945.801605243050000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+        end
+      end
+      object Panel2: TPanel
+        Left = 0
+        Top = 57
+        Width = 882
+        Height = 310
+        Align = alClient
+        Color = clCream
+        ParentBackground = False
+        TabOrder = 1
+        ExplicitTop = 54
+        ExplicitWidth = 876
+        ExplicitHeight = 301
+        DesignSize = (
+          882
+          310)
+        object Panel4: TPanel
+          Left = 5
+          Top = 6
+          Width = 332
+          Height = 295
+          Anchors = [akLeft, akTop, akBottom]
+          TabOrder = 0
+          ExplicitHeight = 291
+          DesignSize = (
+            332
+            295)
+          object Label4: TLabel
+            Left = 8
+            Top = 0
+            Width = 45
+            Height = 16
+            Caption = 'Produs'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object SpeedButton1: TSpeedButton
+            Left = 292
+            Top = 16
+            Width = 36
+            Height = 25
+            Cursor = crHandPoint
+            Caption = '...'
+          end
+          object Label5: TLabel
+            Left = 8
+            Top = 48
+            Width = 127
+            Height = 16
+            Caption = 'Unitatea de masura'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object SpeedButton2: TSpeedButton
+            Left = 295
+            Top = 65
+            Width = 36
+            Height = 25
+            Cursor = crHandPoint
+            Caption = '...'
+          end
+          object Label6: TLabel
+            Left = 8
+            Top = 95
+            Width = 29
+            Height = 16
+            Caption = 'Stoc'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label7: TLabel
+            Left = 8
+            Top = 151
+            Width = 77
+            Height = 16
+            Caption = 'Pret primire'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object Label8: TLabel
+            Left = 165
+            Top = 151
+            Width = 125
+            Height = 16
+            Caption = 'Pret comercializare'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object SpeedButton3: TSpeedButton
+            Left = 8
+            Top = 215
+            Width = 145
+            Height = 37
+            Anchors = [akBottom]
+            Caption = 'Executa'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object SpeedButton4: TSpeedButton
+            Left = 173
+            Top = 213
+            Width = 148
+            Height = 37
+            Anchors = [akBottom]
+            Caption = 'Anuleaza/Iesire'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object SpeedButton8: TSpeedButton
+            Left = 8
+            Top = 256
+            Width = 313
+            Height = 37
+            Anchors = [akBottom]
+            Caption = 'Urmatoarea factura'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+          end
+          object EProdus: TEdit
+            Left = 8
+            Top = 17
+            Width = 281
+            Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+          end
+          object EUM: TEdit
+            Left = 8
+            Top = 65
+            Width = 281
+            Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 1
+          end
+          object ESt: TEdit
+            Left = 8
+            Top = 113
+            Width = 97
+            Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 2
+          end
+          object EPrPr: TEdit
+            Left = 8
+            Top = 169
+            Width = 136
+            Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+          end
+          object EPrCom: TEdit
+            Left = 165
+            Top = 169
+            Width = 156
+            Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 4
+          end
+        end
+        object Panel5: TPanel
+          Left = 343
+          Top = 6
+          Width = 534
+          Height = 296
+          Anchors = [akLeft, akTop, akRight, akBottom]
+          Caption = 'Panel5'
+          TabOrder = 1
+          ExplicitWidth = 528
+          ExplicitHeight = 289
+          object DBGrid1: TDBGrid
+            Left = 1
+            Top = 1
+            Width = 532
+            Height = 294
+            Align = alClient
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+            Columns = <
+              item
+                Expanded = False
+                Title.Alignment = taCenter
+                Title.Caption = 'NR'
+                Title.Font.Charset = DEFAULT_CHARSET
+                Title.Font.Color = clWindowText
+                Title.Font.Height = -13
+                Title.Font.Name = 'Tahoma'
+                Title.Font.Style = [fsBold]
+                Width = 28
+                Visible = True
+              end
+              item
+                Expanded = False
+                Title.Alignment = taCenter
+                Title.Caption = 'PRODUS'
+                Title.Font.Charset = DEFAULT_CHARSET
+                Title.Font.Color = clWindowText
+                Title.Font.Height = -13
+                Title.Font.Name = 'Tahoma'
+                Title.Font.Style = [fsBold]
+                Width = 197
+                Visible = True
+              end
+              item
+                Expanded = False
+                Title.Alignment = taCenter
+                Title.Caption = 'U. M.'
+                Title.Font.Charset = DEFAULT_CHARSET
+                Title.Font.Color = clWindowText
+                Title.Font.Height = -13
+                Title.Font.Name = 'Tahoma'
+                Title.Font.Style = [fsBold]
+                Width = 37
+                Visible = True
+              end
+              item
+                Expanded = False
+                Title.Alignment = taCenter
+                Title.Caption = 'CANTITATE'
+                Title.Font.Charset = DEFAULT_CHARSET
+                Title.Font.Color = clWindowText
+                Title.Font.Height = -13
+                Title.Font.Name = 'Tahoma'
+                Title.Font.Style = [fsBold]
+                Width = 74
+                Visible = True
+              end
+              item
+                Expanded = False
+                Title.Alignment = taCenter
+                Title.Caption = 'PRET PRIM.'
+                Title.Font.Charset = DEFAULT_CHARSET
+                Title.Font.Color = clWindowText
+                Title.Font.Height = -13
+                Title.Font.Name = 'Tahoma'
+                Title.Font.Style = [fsBold]
+                Width = 84
+                Visible = True
+              end
+              item
+                Expanded = False
+                Title.Alignment = taCenter
+                Title.Caption = 'PRET COM.'
+                Title.Font.Charset = DEFAULT_CHARSET
+                Title.Font.Color = clWindowText
+                Title.Font.Height = -13
+                Title.Font.Name = 'Tahoma'
+                Title.Font.Style = [fsBold]
+                Width = 69
+                Visible = True
+              end>
+          end
+        end
+      end
+      object Panel3: TPanel
+        Left = 0
+        Top = 367
+        Width = 882
+        Height = 41
+        Align = alBottom
+        Color = clCream
+        ParentBackground = False
+        TabOrder = 2
+        ExplicitLeft = 24
+        ExplicitTop = 134
+        ExplicitWidth = 185
+      end
+    end
+    object PRODUS: TTabSheet
+      Caption = 'PRODUS'
+      ImageIndex = 1
+      ExplicitTop = 24
+      ExplicitWidth = 754
+      ExplicitHeight = 419
+      object Panel6: TPanel
+        Left = 0
+        Top = 0
+        Width = 882
+        Height = 349
+        Align = alClient
+        Color = clCream
+        ParentBackground = False
+        TabOrder = 0
+        ExplicitWidth = 880
+        ExplicitHeight = 361
+        object PageControl2: TPageControl
+          Left = 1
+          Top = 1
+          Width = 880
+          Height = 347
+          ActivePage = SELECPROD
+          Align = alClient
+          TabHeight = 25
+          TabOrder = 0
+          ExplicitWidth = 878
+          object SELECPROD: TTabSheet
+            Caption = 'SELECTEAZA PRODUS'
+            ExplicitTop = 24
+            ExplicitWidth = 281
+            ExplicitHeight = 165
+            object Panel8: TPanel
+              Left = 0
+              Top = 0
+              Width = 872
+              Height = 253
+              Align = alClient
+              Color = clCream
+              ParentBackground = False
+              TabOrder = 0
+              ExplicitLeft = 48
+              ExplicitTop = 16
+              ExplicitWidth = 185
+              ExplicitHeight = 41
+              object DBGrid2: TDBGrid
+                Left = 1
+                Top = 25
+                Width = 870
+                Height = 227
+                Align = alClient
+                DataSource = dm.DSQProdus
+                TabOrder = 0
+                TitleFont.Charset = DEFAULT_CHARSET
+                TitleFont.Color = clWindowText
+                TitleFont.Height = -11
+                TitleFont.Name = 'Tahoma'
+                TitleFont.Style = []
+                Columns = <
+                  item
+                    Alignment = taCenter
+                    Expanded = False
+                    FieldName = 'PRODUSE_ID'
+                    Title.Alignment = taCenter
+                    Title.Caption = 'NR'
+                    Title.Font.Charset = DEFAULT_CHARSET
+                    Title.Font.Color = clWindowText
+                    Title.Font.Height = -13
+                    Title.Font.Name = 'Tahoma'
+                    Title.Font.Style = [fsBold]
+                    Width = 28
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = 'COD_PRODUS'
+                    Title.Alignment = taCenter
+                    Title.Caption = 'COD PRODUS'
+                    Title.Font.Charset = DEFAULT_CHARSET
+                    Title.Font.Color = clWindowText
+                    Title.Font.Height = -13
+                    Title.Font.Name = 'Tahoma'
+                    Title.Font.Style = [fsBold]
+                    Width = 105
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = 'DENUMIRE'
+                    Title.Alignment = taCenter
+                    Title.Caption = 'PRODUS'
+                    Title.Font.Charset = DEFAULT_CHARSET
+                    Title.Font.Color = clWindowText
+                    Title.Font.Height = -13
+                    Title.Font.Name = 'Tahoma'
+                    Title.Font.Style = [fsBold]
+                    Width = 694
+                    Visible = True
+                  end>
+              end
+              object CautProd: TEdit
+                Left = 1
+                Top = 1
+                Width = 870
+                Height = 24
+                Align = alTop
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+                TabOrder = 1
+                TextHint = 'Cauta produs dupa cod'
+                OnChange = CautProdChange
+                ExplicitWidth = 868
+              end
+            end
+            object Panel9: TPanel
+              Left = 0
+              Top = 253
+              Width = 872
+              Height = 59
+              Align = alBottom
+              Color = clCream
+              ParentBackground = False
+              TabOrder = 1
+              ExplicitLeft = 1
+              ExplicitTop = 250
+              ExplicitWidth = 870
+              DesignSize = (
+                872
+                59)
+              object SpeedButton5: TSpeedButton
+                Left = 17
+                Top = 6
+                Width = 497
+                Height = 43
+                Anchors = [akBottom]
+                Caption = 'Selecteaza'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = [fsBold]
+                ParentFont = False
+                OnClick = SpeedButton5Click
+                ExplicitLeft = 16
+              end
+              object SpeedButton6: TSpeedButton
+                Left = 544
+                Top = 6
+                Width = 145
+                Height = 43
+                Anchors = [akBottom]
+                Caption = 'Executa'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = [fsBold]
+                ParentFont = False
+                ExplicitLeft = 543
+              end
+              object SpeedButton7: TSpeedButton
+                Left = 719
+                Top = 6
+                Width = 148
+                Height = 43
+                Anchors = [akBottom]
+                Caption = 'Anuleaza'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = [fsBold]
+                ParentFont = False
+                ExplicitLeft = 717
+              end
+            end
+          end
+          object GESTPROD: TTabSheet
+            Caption = 'GESTIONARE PRODUS'
+            ImageIndex = 1
+            ExplicitTop = 24
+            ExplicitWidth = 281
+            ExplicitHeight = 165
+          end
+        end
+      end
+      object Panel7: TPanel
+        Left = 0
+        Top = 349
+        Width = 882
+        Height = 59
+        Align = alBottom
+        Color = clCream
+        ParentBackground = False
+        TabOrder = 1
+        ExplicitLeft = 112
+        ExplicitTop = 88
+        ExplicitWidth = 185
+        ExplicitHeight = 41
+      end
+    end
+    object UNITATE: TTabSheet
+      Caption = 'UNITATE DE MASURA'
+      ImageIndex = 2
+      ExplicitTop = 24
+      ExplicitWidth = 754
+      ExplicitHeight = 419
+    end
+  end
+  object ImageList1: TImageList
+    Height = 32
+    Width = 32
+    Left = 281
+    Top = 195
+  end
+end

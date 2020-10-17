@@ -1,0 +1,42 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "UReceptie.h"
+#include "Udm.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TFReceptie *FReceptie;
+//---------------------------------------------------------------------------
+__fastcall TFReceptie::TFReceptie(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void __fastcall TFReceptie::CautProdChange(TObject *Sender)
+{
+	if(CautProd->Text.Length()>=1)
+	{
+	 dm->QProdus->Close();
+	 dm->QProdus->SQL->Clear();
+	 dm->QProdus->SQL->Add("select * from produse where cod_produs like '"+CautProd->Text+"%'");
+	 dm->QProdus->Open();
+	}
+	else
+	{
+	 dm->QProdus->Close();
+	}
+}
+//---------------------------------------------------------------------------
+void __fastcall TFReceptie::SpeedButton5Click(TObject *Sender)
+{
+EProdus->Text=dm->QProdus->FieldByName("denumire")->AsString;
+PRODUS->TabVisible=false;
+RECEPTIE->TabVisible=true;
+
+
+
+}
+//---------------------------------------------------------------------------

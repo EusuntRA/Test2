@@ -1,0 +1,53 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "UCEC.h"
+#include "Udm.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TFCec *FCec;
+//---------------------------------------------------------------------------
+__fastcall TFCec::TFCec(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void __fastcall TFCec::BTiparireClick(TObject *Sender)
+{
+Panel4->Visible=true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCec::Button1Click(TObject *Sender)
+{
+AnsiString g;
+g=" select ROW_NUMBER() OVER(ORDER BY NR_CEC DESC) as NR, ";
+g=g+" CAST(DATA_CEC AS DATE) as DATA, ";
+g=g+" NR_CEC,SUMA_CEC AS TOTAL FROM CEC ";
+g=g+" WHERE OPERATOR_ID=:OPERATOR_ID AND NR_CEC<>0 ";
+   if(RadioButton1->Checked)
+   {g=g+" AND CAST(DATA_CEC AS DATE)=CAST(GETDATE() AS DATE) ";}
+
+g=g+" ORDER BY DATA_CEC,NR_CEC DESC ";
+
+dm->QCASA->Close();
+dm->QCASA->SQL->Clear();
+dm->QCASA->SQL->Add(g);
+dm->QCASA->ParamByName("operator_id")->AsInteger=1;
+dm->QCASA->Open();
+
+dm->frxReport3->ShowReport(true);
+Panel4->Visible=false;
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCec::Button3Click(TObject *Sender)
+{
+Panel4->Visible=false;
+}
+//---------------------------------------------------------------------------
+

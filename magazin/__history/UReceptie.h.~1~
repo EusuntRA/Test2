@@ -1,0 +1,65 @@
+//---------------------------------------------------------------------------
+
+#ifndef UReceptieH
+#define UReceptieH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Data.DB.hpp>
+#include <Vcl.Buttons.hpp>
+#include <Vcl.ComCtrls.hpp>
+#include <Vcl.DBGrids.hpp>
+#include <Vcl.ExtCtrls.hpp>
+#include <Vcl.Grids.hpp>
+//---------------------------------------------------------------------------
+class TFReceptie : public TForm
+{
+__published:	// IDE-managed Components
+	TPageControl *PageControl1;
+	TTabSheet *RECEPTIE;
+	TTabSheet *PRODUS;
+	TTabSheet *UNITATE;
+	TPanel *Panel1;
+	TPanel *Panel2;
+	TPanel *Panel3;
+	TEdit *Edit1;
+	TLabel *Label1;
+	TLabel *Label2;
+	TLabel *Label3;
+	TEdit *Edit3;
+	TDateTimePicker *DateTimePicker1;
+	TPanel *Panel4;
+	TPanel *Panel5;
+	TLabel *Label4;
+	TEdit *Edit2;
+	TSpeedButton *SpeedButton1;
+	TLabel *Label5;
+	TEdit *Edit4;
+	TSpeedButton *SpeedButton2;
+	TLabel *Label6;
+	TEdit *Edit5;
+	TLabel *Label7;
+	TEdit *Edit6;
+	TLabel *Label8;
+	TEdit *Edit7;
+	TSpeedButton *SpeedButton3;
+	TSpeedButton *SpeedButton4;
+	TDBGrid *DBGrid1;
+	TPanel *Panel6;
+	TPanel *Panel7;
+	TPageControl *PageControl2;
+	TTabSheet *SELECPROD;
+	TTabSheet *GESTPROD;
+	TPanel *Panel8;
+	TPanel *Panel9;
+	TDBGrid *DBGrid2;
+private:	// User declarations
+public:		// User declarations
+	__fastcall TFReceptie(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TFReceptie *FReceptie;
+//---------------------------------------------------------------------------
+#endif

@@ -1,0 +1,138 @@
+object dm: Tdm
+  OldCreateOrder = False
+  Height = 472
+  Width = 949
+  object BAZA: TFDConnection
+    Params.Strings = (
+      'Server=DESKTOP-VPHN274'
+      'Database=magazin'
+      'OSAuthent=Yes'
+      'DriverID=MSSQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 448
+    Top = 8
+  end
+  object QProdus: TFDQuery
+    Connection = BAZA
+    SQL.Strings = (
+      'select * from produse')
+    Left = 512
+    Top = 8
+  end
+  object DSQProdus: TDataSource
+    DataSet = QProdus
+    Left = 512
+    Top = 64
+  end
+  object QUM: TFDQuery
+    Connection = BAZA
+    SQL.Strings = (
+      'select * from unit_masura')
+    Left = 592
+    Top = 8
+  end
+  object DSUM: TDataSource
+    DataSet = QUM
+    Left = 592
+    Top = 64
+  end
+  object QLiber: TFDQuery
+    Connection = BAZA
+    Left = 368
+    Top = 8
+  end
+  object QReceptieF: TFDQuery
+    Connection = BAZA
+    SQL.Strings = (
+      'SELECT * FROM RECEPTIE R INNER JOIN PRODUSE P '
+      '                ON P.PRODUSE_ID=R.PRODUSE_ID'
+      #9#9#9#9'INNER JOIN UNIT_MASURA U'
+      #9#9#9#9'ON U.UNIT_MASURA_ID=R.UNIT_MASURA_ID'
+      #9#9#9#9'AND FACTURA_REC_ID=:FACTURA_REC_ID'
+      #9#9#9#9'ORDER BY P.DENUMIRE')
+    Left = 648
+    Top = 8
+    ParamData = <
+      item
+        Name = 'FACTURA_REC_ID'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+  end
+  object DSQReceptieF: TDataSource
+    DataSet = QReceptieF
+    Left = 648
+    Top = 64
+  end
+  object QVanzare: TFDQuery
+    Connection = BAZA
+    SQL.Strings = (
+      'SELECT  ROW_NUMBER() OVER(ORDER BY vanzare_id ASC) as nr,'
+      'V.*, R.STOCK2,R.PRET_VANZ,P.DENUMIRE AS PRODUS,'
+      'P.COD_PRODUS,CEC.NR_CEC,CEC.DATA_CEC,D.VALOAREA AS DISCOUNT,'
+      'V.CANTITATEA*R.PRET_VANZ AS SUMA, '
+      '(D.VALOAREA/100)*(V.CANTITATEA*R.PRET_VANZ) AS SUMA_DISCount,'
+      
+        '(V.CANTITATEA*R.PRET_VANZ)-((D.VALOAREA/100)*(V.CANTITATEA*R.PRE' +
+        'T_VANZ)) AS COSTFIN'
+      'FROM VANZARE V INNER JOIN RECEPTIE R '
+      '                      ON V.RECEPTIE_ID=R.RECEPTIE_ID'
+      #9#9#9'   INNER JOIN PRODUSE P '
+      #9#9#9'          ON P.PRODUSE_ID=R.PRODUSE_ID'
+      #9#9#9'   INNER JOIN CEC '
+      #9#9#9'          ON CEC.CEC_ID=V.CEC_ID'
+      #9#9#9'   INNER JOIN CLIENT C'
+      #9#9#9'          ON C.CLIENT_ID=CEC.CLIENT_ID'
+      #9#9#9'   INNER JOIN DISCOUNT D'
+      #9#9#9'          ON D.DISCOUNT_ID=C.DISCOUNT_ID'
+      'AND CEC.CEC_ID=:CEC_ID')
+    Left = 752
+    Top = 8
+    ParamData = <
+      item
+        Name = 'CEC_ID'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+  end
+  object DSQVanzare: TDataSource
+    DataSet = QVanzare
+    Left = 752
+    Top = 64
+  end
+  object QCautProd: TFDQuery
+    Connection = BAZA
+    SQL.Strings = (
+      'SELECT *'
+      'FROM RECEPTIE R INNER JOIN PRODUSE P                     '#9#9'  '
+      'ON P.PRODUSE_ID=R.PRODUSE_ID '
+      'AND P.COD_PRODUS=:COD_PRODUS')
+    Left = 832
+    Top = 8
+    ParamData = <
+      item
+        Name = 'COD_PRODUS'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+  end
+  object QCautClient: TFDQuery
+    Connection = BAZA
+    SQL.Strings = (
+      'SELECT *'
+      'FROM CLIENT WHERE COD_CLIENT=:COD_CLIENT')
+    Left = 832
+    Top = 64
+    ParamData = <
+      item
+        Name = 'COD_CLIENT'
+        DataType = ftString
+        ParamType = ptInput
+        Value = Null
+      end>
+  end
+end

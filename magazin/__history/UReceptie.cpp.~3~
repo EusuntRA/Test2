@@ -1,0 +1,194 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "UReceptie.h"
+#include "Udm.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TFReceptie *FReceptie;
+int kontor=0,fac;
+//---------------------------------------------------------------------------
+__fastcall TFReceptie::TFReceptie(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void __fastcall TFReceptie::CautProdChange(TObject *Sender)
+{
+	if(CautProd->Text.Length()>=1)
+	{
+	 dm->QProdus->Close();
+	 dm->QProdus->SQL->Clear();
+	 dm->QProdus->SQL->Add("select * from produse where cod_produs like '"+CautProd->Text+"%'");
+	 dm->QProdus->Open();
+	}
+	else
+	{
+	 dm->QProdus->Close();
+	}
+}
+//---------------------------------------------------------------------------
+void __fastcall TFReceptie::SpeedButton5Click(TObject *Sender)
+{
+EProdus->Text=dm->QProdus->FieldByName("denumire")->AsString;
+PRODUS->TabVisible=false;
+RECEPTIE->TabVisible=true;
+
+
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TFReceptie::FormShow(TObject *Sender)
+{
+ UNITATE->TabVisible=false;
+ PRODUS->TabVisible=false;
+ RECEPTIE->TabVisible=true;
+ Panel1->Enabled=true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFReceptie::SpeedButton1Click(TObject *Sender)
+{
+PRODUS->TabVisible=true;
+RECEPTIE->TabVisible=false;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TFReceptie::SpeedButton7Click(TObject *Sender)
+{
+PRODUS->TabVisible=false;
+RECEPTIE->TabVisible=true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFReceptie::ECautUMChange(TObject *Sender)
+{
+ if(ECautUM->Text.Length()>=1)
+	{
+	 dm->QUM->Close();
+	 dm->QUM->SQL->Clear();
+	 dm->QUM->SQL->Add("select * from unit_masura where nume like '%"+ECautUM->Text+"%' or abreviere like '%"+ECautUM->Text+"%'");
+	 dm->QUM->Open();
+	}
+	else
+	{
+	 dm->QProdus->Close();
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFReceptie::SpeedButton2Click(TObject *Sender)
+{
+UNITATE->TabVisible=true;
+RECEPTIE->TabVisible=false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFReceptie::SpeedButton9Click(TObject *Sender)
+{
+ EUM->Text=dm->QUM->FieldByName("abreviere")->AsString;
+ UNITATE->TabVisible=false;
+ RECEPTIE->TabVisible=true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFReceptie::SpeedButton11Click(TObject *Sender)
+{
+ UNITATE->TabVisible=false;
+ RECEPTIE->TabVisible=true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFReceptie::SpeedButton3Click(TObject *Sender)
+{
+ AnsiString s;
+ kontor=1;
+ if(dm->QReceptieF->IsEmpty())
+  {
+	dm->QLiber->Close();
+	dm->QLiber->SQL->Clear();
+	dm->QLiber->SQL->Add("SELECT * FROM FACTURA_REC WHERE NR_FACTURA=:NR_FACTURA AND DATA_FACTURA=:DATA_FACTURA ");
+	dm->QLiber->ParamByName("NR_FACTURA")->AsString=ENr->Text;
+	dm->QLiber->ParamByName("DATA_FACTURA")->AsDate=EDF->Date;
+	dm->QLiber->Open();
+
+	if(dm->QLiber->IsEmpty()) // verificam daca QLiber a gasit sau nu careva informatii
+	{
+		dm->QLiber->Close();
+		dm->QLiber->SQL->Clear();
+		dm->QLiber->SQL->Add("INSERT INTO FACTURA_REC( NR_FACTURA,DATA_FACTURA,EMITENT) VALUES(:NR_FACTURA,:DATA_FACTURA,:EMITENT) ");
+		dm->QLiber->ParamByName("NR_FACTURA")->AsString=ENr->Text;
+		dm->QLiber->ParamByName("DATA_FACTURA")->AsDate=EDF->Date;
+		dm->QLiber->ParamByName("EMITENT")->AsString=EEmitent->Text;
+		dm->QLiber->ExecSQL();
+
+         //facem selectul pentru a afla id-ul facturii
+		dm->QLiber->Close();
+		dm->QLiber->SQL->Clear();
+		dm->QLiber->SQL->Add("SELECT * FROM FACTURA_REC WHERE NR_FACTURA=:NR_FACTURA AND DATA_FACTURA=:DATA_FACTURA ");
+		dm->QLiber->ParamByName("NR_FACTURA")->AsString=ENr->Text;
+		dm->QLiber->ParamByName("DATA_FACTURA")->AsDate=EDF->Date;
+		dm->QLiber->Open();
+
+		fac=dm->QLiber->FieldByName("factura_rec_id")->AsInteger;
+
+		Panel1->Enabled=false;
+	}
+	else
+	{ShowMessage("Asa factura este deja introdusa in sistem"); kontor=0;}
+  }
+
+
+
+ if(kontor==1)
+ {
+
+
+ s=" INSERT INTO RECEPTIE(PRODUSE_ID,UNIT_MASURA_ID,FACTURA_REC_ID,OPERATOR_ID,STOCK1,STOCK2,PRET_INTRARE,PRET_VANZ)";
+ s=s+" VALUES(:PRODUSE_ID,:UNIT_MASURA_ID,:FACTURA_REC_ID,:OPERATOR_ID,:STOCK1,:STOCK2,:PRET_INTRARE,:PRET_VANZ)";
+ dm->QLiber->Close();
+ dm->QLiber->SQL->Clear();
+ dm->QLiber->SQL->Add(s);
+  dm->QLiber->ParamByName("PRODUSE_ID")->AsInteger=dm->QProdus->FieldByName("PRODUSE_ID")->AsInteger;
+  dm->QLiber->ParamByName("UNIT_MASURA_ID")->AsInteger=dm->QUM->FieldByName("UNIT_MASURA_ID")->AsInteger;
+  dm->QLiber->ParamByName("FACTURA_REC_ID")->AsInteger=fac;
+  dm->QLiber->ParamByName("OPERATOR_ID")->AsInteger=1;
+  dm->QLiber->ParamByName("STOCK1")->AsInteger=ESt->Text.ToInt();
+  dm->QLiber->ParamByName("STOCK2")->AsInteger=StrToInt(ESt->Text);
+  dm->QLiber->ParamByName("PRET_INTRARE")->AsFloat=EPrPr->Text.ToDouble();
+  dm->QLiber->ParamByName("PRET_VANZ")->AsFloat=EPrCom->Text.ToDouble();
+  dm->QLiber->ExecSQL();
+
+   dm->QReceptieF->Close();
+   dm->QReceptieF->ParamByName("FACTURA_REC_ID")->AsInteger=fac;
+   dm->QReceptieF->Open();
+
+	  ESt->Clear();
+	  EPrPr->Clear();
+	  EPrCom->Clear();
+	  EProdus->Clear();
+	  EUM->Clear();
+ }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFReceptie::SpeedButton8Click(TObject *Sender)
+{
+	Panel1->Enabled=true;
+	ENr->Clear();
+	EEmitent->Clear();
+	dm->QReceptieF->Close();
+
+	  ESt->Clear();
+	  EPrPr->Clear();
+	  EPrCom->Clear();
+	  EProdus->Clear();
+	  EUM->Clear();
+
+}
+//---------------------------------------------------------------------------
+

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.944,F:\Baza\magazin\UAutentificare.dfm=F:\Baza\magazin\Unit1.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.635,F:\Baza\magazin\UCEC.h=F:\Baza\magazin\Unit1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.942,F:\Baza\magazin\Unit2.h=F:\Baza\magazin\UReceptie.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.944,F:\Baza\magazin\UAutentificare.cpp=F:\Baza\magazin\Unit1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.242,=F:\Baza\magazin\Unit2.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.942,F:\Baza\magazin\Unit2.cpp=F:\Baza\magazin\UReceptie.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.795,F:\Baza\magazin\Unit1.dfm=F:\Baza\magazin\Udm.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.019,C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.dfm=F:\Baza\magazin\UMain.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.019,C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.cpp=F:\Baza\magazin\UMain.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.280,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.795,F:\Baza\magazin\Unit1.h=F:\Baza\magazin\Udm.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.019,C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.h=F:\Baza\magazin\UMain.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.431,C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.cbproj=F:\Baza\magazin\Magazin.cbproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.942,F:\Baza\magazin\Unit2.dfm=F:\Baza\magazin\UReceptie.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.795,=F:\Baza\magazin\Unit1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.795,F:\Baza\magazin\Unit1.cpp=F:\Baza\magazin\Udm.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.534,=F:\Baza\magazin\Unit1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.464,F:\Baza\magazin\UCautare.dfm=F:\Baza\magazin\Unit1.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.060,=F:\Baza\magazin\Unit1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.347,=F:\Baza\magazin\Unit1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.464,F:\Baza\magazin\UCautare.h=F:\Baza\magazin\Unit1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.635,F:\Baza\magazin\UCEC.dfm=F:\Baza\magazin\Unit1.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.464,F:\Baza\magazin\UCautare.cpp=F:\Baza\magazin\Unit1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.635,F:\Baza\magazin\UCEC.cpp=F:\Baza\magazin\Unit1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.254,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.942,C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1PCH1.h=F:\Baza\magazin\MagazinPCH1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.944,F:\Baza\magazin\UAutentificare.h=F:\Baza\magazin\Unit1.h</Transaction>
+  </Transactions>
+</BorlandProject>
